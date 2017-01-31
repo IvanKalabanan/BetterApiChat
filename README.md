@@ -5,7 +5,7 @@ A simple chat demo for socket.io
 
 ## How to use
 
-#### If have't install node :
+#### If you don't have node :
 ```
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
