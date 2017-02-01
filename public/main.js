@@ -223,6 +223,21 @@ $(function() {
     $inputMessage.focus();
   });
 
+  function decodeBase64Image(dataString) {
+    // console.log(dataString);
+    var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+      response = {};
+
+    if (matches.length !== 3) {
+      return new Error('Invalid input string');
+    }
+
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+
+    return response;
+  }
+
   // Socket events
 
   // Whenever the server emits 'login', log the login message
@@ -239,6 +254,10 @@ $(function() {
   // Whenever the server emits 'new message', update the chat body
   socket.on('new message', function (data) {
     addChatMessage(data);
+  });
+
+  socket.on('new file', function (data) {
+    
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
