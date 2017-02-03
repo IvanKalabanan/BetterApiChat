@@ -5,21 +5,20 @@ A simple chat demo for socket.io
 
 ## How to use
 
+#### If you don't have node :
 ```
-$ cd socket.io
+$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+```
+#### After
+In main folder :
+```
 $ npm install
-$ cd examples/chat
-$ npm install
+$ npm install socket.io --save
 $ npm start
 ```
-
-And point your browser to `http://localhost:3000`. Optionally, specify
-a port by supplying the `PORT` env variable.
-
-## Features
-
-- Multiple users can join a chat room by each entering a unique username
-on website load.
-- Users can type chat messages to the chat room.
-- A notification is sent to all users when a user joins or leaves
-the chatroom.
+Change in `index.js` :
+```js
+server.listen(80,'192.168.1.18', function () { ...
+```
+ to your port and ip.
