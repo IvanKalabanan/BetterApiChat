@@ -43,6 +43,10 @@ app.post('/uploadPhoto', function(req, res) {
       username: name,
       file: mainUrl + photoUrl
 });
+  res.json([{
+    code : 501,
+    photo : mainUrl + photoUrl
+  }]);
 });
 
 io.on('connection', function (socket) {
